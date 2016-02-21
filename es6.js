@@ -456,7 +456,7 @@ logArguments("a", "b", "c", 1, 2, 3);
   console.log("author: %s\\ntitle: %s\\ndate: %s\\ncontent: %s\\ntags: %s",
                 author, title, date, content, tags);
 };
-postBlogEntry("Kevin Lee", "ECMAScrpt 6 살짝 훔펴보기", new Date(), "그런거 없음!", ["뻥인데", "속았지"]);
+postBlogEntry("Kevin Lee", "ECMAScript 6 살짝 훔쳐보기", new Date(), "그런거 없음!", ["뻥인데", "속았지"]);
 
 // Result: `
   );
@@ -466,7 +466,7 @@ postBlogEntry("Kevin Lee", "ECMAScrpt 6 살짝 훔펴보기", new Date(), "그�
     console.log("author: %s\ntitle: %s\ndate: %s\ncontent: %s\ntags: %s",
                 author, title, date, content, tags);
   };
-  postBlogEntry("Kevin Lee", "ECMAScrpt 6 살짝 훔펴보기", new Date(), "그런거 없음!", ["뻥인데", "속았지"]);
+  postBlogEntry("Kevin Lee", "ECMAScript 6 살짝 훔쳐보기", new Date(), "그런거 없음!", ["뻥인데", "속았지"]);
 
   console.log(`\n------------------------------------------
 var postBlogEntry2 = function(entry) {
