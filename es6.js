@@ -52,9 +52,11 @@ ${"-".repeat(title.length)}
   var a = 1;
   console.log(`var a = 1;`);
   console.log(`a: ${a}`);
+
   a = 10;
   console.log(`a = 10;`);
   console.log(`a: ${a}`);
+
   a = 100;
   console.log(`a = 100;`);
   console.log(`a: ${a}`);
@@ -64,15 +66,19 @@ ${"-".repeat(title.length)}
   let b = 1;
   console.log("let b = 1;");
   console.log(`b: ${b}`);
+
   b = 10;
   console.log("b = 10;");
   console.log(`b: ${b}`);
+
   b = 100;
   console.log("b = 100;");
   console.log(`b: ${b}`);
 
   console.log("------------------------------");
+
   const c = 1;
+
   console.log(`const c = 1;`);
   console.log(`c: ${c}`);
   // c = 10;
@@ -80,27 +86,62 @@ ${"-".repeat(title.length)}
   console.log(`c = 10;`);
 })();
 
-printTitle("Testing Block");
-{
-  var insideBlockUsingVar = 10;
-}
-console.log("insideBlockUsingVar: ", insideBlockUsingVar);
+
+(function() {
+  printTitle("Testing Block var vs let");
+  console.log(`  {
+    var insideBlockUsingVar = 10;
+  }
+  console.log("insideBlockUsingVar: ", insideBlockUsingVar);
+`);
+
+  // 실제 코드
+  {
+    var insideBlockUsingVar = 10;
+  }
+  console.log("insideBlockUsingVar:", insideBlockUsingVar);
+})();
 
 {
-  let insideBlockUsingLet = 10;
+  console.log(`
+  {
+    let insideBlockUsingLet = 10;
+    console.log("insideBlockUsingLet:", insideBlockUsingLet);
+  }`);
+  // 실제 코드
+  {
+    let insideBlockUsingLet = 10;
+    console.log("insideBlockUsingLet:", insideBlockUsingLet);
+  }
+
+console.log(`
+  // Error: ReferenceError: insideBlockUsingLet is not defined
   console.log("insideBlockUsingLet: ", insideBlockUsingLet);
+`)
+  // 실제 코드 uncomment 하면 해당 에러를 보실 수 있습니다. 
+  // Error: ReferenceError: insideBlockUsingLet is not defined
+  // console.log("insideBlockUsingLet: ", insideBlockUsingLet);
 }
-// Error
-// console.log("insideBlockUsingLet: ", insideBlockUsingLet);
 
-var mappedWithOldFunction = [1, 2, 3, 4, 5].map(function (elem) {
-  return elem * 2;
-});
-console.log("mappedWithOldFunction: ", mappedWithOldFunction);
+(function () {
+  printTitle("ES5: [].map(function() {})");
+  console.log(`  var mappedWithOldFunction = [1, 2, 3, 4, 5].map(function (elem) {
+    return elem * 2;
+  });
+`);
+  var mappedWithOldFunction = [1, 2, 3, 4, 5].map(function (elem) {
+    return elem * 2;
+  });
+  console.log("mappedWithOldFunction:", mappedWithOldFunction);
+})();
 
-var mappedWithArrowFunction = [1, 2, 3, 4, 5].map(elem => elem * 2);
-console.log("mappedWithArrowFunction: ", mappedWithArrowFunction);
-
+{
+  printTitle("ES6: [].map(arrow function)");
+  console.log(`  let mappedWithArrowFunction = [1, 2, 3, 4, 5].map(elem => elem * 2);
+`);
+  let mappedWithArrowFunction = [1, 2, 3, 4, 5].map(elem => elem * 2);
+  console.log("mappedWithArrowFunction:", mappedWithArrowFunction);
+}
 
 (function () {
   printTitle("ES5: function using Closure to keep the enclosing context.");
